@@ -35,7 +35,7 @@ public class ChatEvent implements Listener{
 		
 		StringBuilder builder = new StringBuilder();
 		String string = plugin.getConfig().getString("player-tag");
-		String string2 = string.replaceAll("&" , "ง");
+		String string2 = string.replaceAll("&" , "ยง");
 		String tag = string2.replaceAll("%player%", sender.getName());
 		builder.append(tag + " ");
 		
@@ -62,11 +62,15 @@ public class ChatEvent implements Listener{
 		if(i == 0) {
 			StringBuilder alone = new StringBuilder();
 			String s = plugin.getConfig().getString("no-players-around-message");
-			String s1 = s.replaceAll("&" , "ง");
+			String s1 = s.replaceAll("&" , "ยง");
 			String s2 = s1.replaceAll("%player%", sender.getName());
 			alone.append(s2);
 
 			sender.sendMessage(alone.toString());
+		}else {
+			builder.append(ChatColor.WHITE + message);
+			sender.sendMessage(builder.toString());
+			
 		}
 	}
 }
